@@ -1,0 +1,59 @@
+<!--
+1.利用Navigator物件之屬性，判斷使用者所使用的瀏覽器，於網頁適當位置顯示結果。
+2.設計一個div元素，模擬成一個具固定寬度與高度的對話方塊，一開始先不顯示。(利用css樣式 display:none)
+3.於網頁中提供一按鈕或圖像，使用者按下按鈕或圖像時，顯示此div(對應的css設定為display:block)，此div必須顯示於網頁之正中央位置
+ 顯示之div，須包含一個關閉圖示或按鈕，按下此按鈕後，關閉此div。
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>dialogue</title>
+<style type="text/css">
+#jjj{font-size: 18pt;}
+#lll{font-size: 18pt;}
+#content{position:relative;width:1000px;margin:50px auto;padding:10px;border:1px solid #888888;
+background-color:#eeeeee;box-shadow:5px 5px 5px #000000;display:none;font-weight: bold;}
+#content>#close{position:absolute;top:2px;right:8px;cursor:pointer;}
+#bbb{text-indent:8px;padding:2px;width:auto;border:1px solid #ccffcc;background-color:#eeffcc;}
+</style>
+<script type="text/javascript">
+<!--
+var content;
+window.onload = function() {
+    content = $("content");
+    var nav=navigator.userAgent;
+    $("ggg").innerHTML+="</br>"+nav+"</br></br>";
+    $("jjj").onclick=Show;
+    $("close").onclick=Hide;
+    $("lll").onclick=Hide;
+}
+function Show() {
+    content.style.display="block";
+}
+function Show2() {
+    $("ggg").innerHTML+="<div id='bbb'>"+$("dialogue").value+"</div></br>";
+}
+function Show3() {
+    $("ggg").innerHTML+="<img src='78786.jpg' width='100' height='100'>";
+}
+function Show4() {
+    $("ggg").innerHTML+="<img src='78787.jpg' width='100' height='100'>";
+}
+function Hide(){
+    content.style.display="none";
+}
+function $(id) {
+    return document.getElementById(id);
+}
+-->
+</script>
+</head>
+<body>
+<button id="jjj">開啟</button>
+<button id="lll">收起</button>
+<div id="content"><div id="close">x</div>對話框裡的內容</br><div id="ggg"></div>
+輸入：<input id="dialogue" type="text"><button id="mmm" onclick="Show2()">傳送</button>
+<button onclick="Show3()">圖片1</button><button onclick="Show4()">圖片2</button></br></div>
+</body>
+</html>
